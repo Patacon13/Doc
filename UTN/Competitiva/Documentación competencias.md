@@ -241,11 +241,19 @@ bool same(int a, int b) {
 
 ## Kruskal
 
-Siendo aristas un vector de pares donde se ve la unión de primero-segundo, ordenado de menor a mayor según el peso. Requiere union-find
+Arista es un vector de par de pares. aristas[i].first -> peso. aristas[i].second.first -> primer nodo conexión. aristas[i].second.second -> segundo nodo conexión. Requiere union-find. Devuelve el tamaño total del mst.
 
 ```c++
-for(unsigned i = 0; i<aristas.size(); i++) {
-    if(!same(aristas[i].first,aristas[i].second) union(aristas[i].first,aristas[i].second);
+int kruskal(vector<pair<int,pair<int,int>>> grafo) {
+	int ret = 0;
+	for(unsigned i = 0; i<grafo.size(); i++) {
+		if(!same(grafo[i].second.first, grafo[i].second.second)) {
+			unite(grafo[i].second.first,grafo[i].second.second);
+			mst.push_back(grafo[i]);
+			ret += grafo[i].first;
+		}
+	}
+	return ret;
 }
 ```
 
