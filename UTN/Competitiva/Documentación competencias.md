@@ -263,13 +263,13 @@ int kruskal(vector<pair<int,pair<int,int>>> grafo) {
 int mcd(int a, int b)  {  
     if (a == 0)
         return b;  
-    return gcd(b % a, a);  
+    return mcd(b % a, a);  
 }  
 ```
 
 ```c++
 int mcm(int a, int b)  {  
-    return (a*b)/gcd(a, b);  
+    return (a*b)/mcd(a, b);  
 } 
 ```
 
