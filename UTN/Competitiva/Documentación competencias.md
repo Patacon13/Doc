@@ -197,7 +197,7 @@ void floyd(vector<vector<int> > &d){
 # Estructuras de Grafos
 Es importante entender que existen estructuras que puedan requerir de otras. Kruscal necesita en sí mismo, de un union-find
 
-## Union-Find
+### Union-Find
 
 En primer lugar, hay que inicializar los sets link y size
 
@@ -206,7 +206,7 @@ for(int i = 0; i <= n; i++) link[i] = i;
 for(int i = 0; i <= n; i++) size[i] = 1;
 ```
 
-## Union
+### Union
 
 ```c++
 bool union(int a, int b) {
@@ -220,7 +220,7 @@ bool union(int a, int b) {
 }
 ```
 
-## Find
+### Find
 
 ```c++
 void find(int x) {
@@ -229,7 +229,7 @@ void find(int x) {
 }
 ```
 
-## Averiguar si están en la misma componente
+### Averiguar si están en la misma componente
 
 ```c++
 bool same(int a, int b) {
