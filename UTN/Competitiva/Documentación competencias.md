@@ -42,12 +42,12 @@ bool criterio(const quimico&a, const quimico&b) {
 ```c++
 int a = 0, b = n-1;
 while (a <= b) {
-int k = (a+b)/2;
-if (array[k] == x) {
-// x found at index k
-}
-if (array[k] > x) b = k-1;
-else a = k+1;
+    int k = (a+b)/2;
+    if (array[k] == x) {
+        // x found at index k
+    }
+    if (array[k] > x) b = k-1;
+    else a = k+1;
 }
 ```
 
@@ -104,12 +104,12 @@ DFS - Bipartito (colores)
 
 ```c++
 bool dfs(int node, int clr) {
-color[node] = clr;
-for(int i = 0; i < n; i++) if(matAdy[node][i] == 1) {
-if(color[i] == color[node]) return false;
-if(color[i] == -1 && !dfs(i, 1-clr)) return false;
-}
-return true;
+    color[node] = clr;
+    for(int i = 0; i < n; i++) if(matAdy[node][i] == 1) {
+        if(color[i] == color[node]) return false;
+        if(color[i] == -1 && !dfs(i, 1-clr)) return false;
+    }
+    return true;
 }
 ```
 
@@ -150,17 +150,17 @@ for (int i = 1; i <= n; i++) distance[i] = INF;
 distance[x] = 0;
 q.push({0,x});
 while (!q.empty()) {
-int a = q.top().second;
-q.pop();
-if (processed[a]) continue;
-processed[a] = true;
-for (auto u : adj[a]) {
-int b = u.first, w = u.second;
-if (distance[a]+w < distance[b]) {
-distance[b] = distance[a]+w;
-q.push({-distance[b],b});
-}
-}
+    int a = q.top().second;
+    q.pop();
+    if (processed[a]) continue;
+    processed[a] = true;
+    for (auto u : adj[a]) {
+        int b = u.first, w = u.second;
+        if (distance[a]+w < distance[b]) {
+            distance[b] = distance[a]+w;
+            q.push({-distance[b],b});
+        }
+    }
 }
 ```
 ### Bellman-Ford - Complejidad: O(n*m)
