@@ -136,7 +136,7 @@ void dfs2(int node) {
 }
 ```
 
-En el código se debe tener en cuenta que, en primer lugar se debe /*realizar un dfs1 en todos los nodos. Luego, invertir el “orden”, y, finalmente, realizar el dfs2. El algoritmo devuelve todas las componentes fuertemente conexas. Sin embargo, entiende a una componente simple como fuertemente conexa. Por eso se tendría que mirar si está detectando más de 1 nodo.
+En el código se debe tener en cuenta que, en primer lugar se debe realizar un dfs1 en todos los nodos. Luego, invertir el “orden”, y, finalmente, realizar el dfs2. El algoritmo devuelve todas las componentes fuertemente conexas. Sin embargo, entiende a una componente simple como fuertemente conexa. Por eso se tendría que mirar si está detectando más de 1 nodo.
 
 ### Algoritmos distancias en grafos ponderados
 
