@@ -214,7 +214,7 @@ bool union(int a, int b) {
     b = find(b);
     if(a == b) return false;
     if(size[a] < size[b]) swap(a,b);
-    size[a] += size[b]
+    size[a] += size[b];
     link[b] = a;
     return true;
 }
@@ -223,7 +223,7 @@ bool union(int a, int b) {
 ### Find
 
 ```c++
-void find(int x) {
+int find(int x) {
     while(x != link[x]) x = link[x];
     return x;
 }
