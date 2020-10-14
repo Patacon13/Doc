@@ -194,15 +194,47 @@ void floyd(vector<vector<int> > &d){
 }
 ```
 
-## Estructuras de Grafos
+# Estructuras de Grafos
 Es importante entender que existen estructuras que puedan requerir de otras. Kruscal necesita en sí mismo, de un union-find
+
+## Union-Find
+
+En primer lugar, hay que inicializar los sets link y size
+
+```c++
+for(int i = 0; i <= n; i++) link[i] = i;
+for(int i = 0; i <= n; i++) size[i] = 1;
+```
 
 ## Union
 
 ```c++
-Void union(int a, int b) {
+bool union(int a, int b) {
     a = find(a);
-b = find(b);
+    b = find(b);
+    if(a == b) return false;
+    if(size[a] < size[b]) swap(a,b);
+    size[a] += size[b]
+    link[b] = a;
+    return true;
+}
+```
+
+## Find
+
+```c++
+void find(int x) {
+    while(x != link[x]) x = link[x];
+    return x;
+}
+```
+
+## Averiguar si están en la misma componente
+
+```c++
+bool same(int a, int b) {
+    return find(a) == find(b);
+}
 ```
 
 # Teoría de números
