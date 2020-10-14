@@ -1,4 +1,4 @@
-# Notebook Sir-Lock 221
+# Notebook Sir-Lock 221B
 
 ## Cabecera
 
@@ -271,4 +271,14 @@ int mcd(int a, int b)  {
 int mcm(int a, int b)  {  
     return (a*b)/gcd(a, b);  
 } 
+```
+
+```c++
+int mcmvector(vector<int> a){
+	int aux=mcm(a[0],a[1]);
+	for(int i=2;i<a.size()-1;i++){
+		aux=mcm(aux,a[i]);
+	}
+	return aux;
+}
 ```
