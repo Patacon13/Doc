@@ -276,7 +276,7 @@ int mcm(int a, int b)  {
 ```c++
 int mcmvector(vector<int> a){
 	int aux=mcm(a[0],a[1]);
-	for(int i=2;i<a.size()-1;i++){
+	for(int i=2;i<a.size();i++){
 		aux=mcm(aux,a[i]);
 	}
 	return aux;
