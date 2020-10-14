@@ -197,7 +197,7 @@ void floyd(vector<vector<int> > &d){
 # Estructuras de Grafos
 Es importante entender que existen estructuras que puedan requerir de otras. Kruscal necesita en sí mismo, de un union-find
 
-### Union-Find
+## Union-Find
 
 En primer lugar, hay que inicializar los sets link y size
 
@@ -234,6 +234,18 @@ void find(int x) {
 ```c++
 bool same(int a, int b) {
     return find(a) == find(b);
+}
+```
+
+# Árboles de recorrido máximo
+
+## Kruskal
+
+Siendo aristas un vector de pares donde se ve la unión de primero-segundo, ordenado de menor a mayor según el peso. Requiere union-find
+
+```c++
+for(unsigned i = 0; i<aristas.size(); i++) {
+    if(!same(aristas[i].first,aristas[i].second) union(aristas[i].first,aristas[i].second);
 }
 ```
 
