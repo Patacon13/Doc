@@ -209,7 +209,7 @@ for(int i = 0; i <= n; i++) size[i] = 1;
 ### Union
 
 ```c++
-bool union(int a, int b) {
+bool unite(int a, int b) {
     a = find(a);
     b = find(b);
     if(a == b) return false;
