@@ -272,7 +272,7 @@ int kruskal(vector<pair<int,pair<int,int>>> grafo) {
 
 # Teoría de números
 
-## mcd
+## MCD
 
 ```c++
 int mcd(int a, int b)  {  
@@ -282,7 +282,7 @@ int mcd(int a, int b)  {
 }  
 ```
 
-## mcm
+## MCM
 
 
 ```c++
@@ -291,7 +291,7 @@ int mcm(int a, int b)  {
 } 
 ```
 
-## mcm para un vector
+## MCM para un vector
 
 ```c++
 int mcmvector(vector<int> a){
