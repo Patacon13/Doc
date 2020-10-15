@@ -272,6 +272,8 @@ int kruskal(vector<pair<int,pair<int,int>>> grafo) {
 
 # Teoría de números
 
+## mcd
+
 ```c++
 int mcd(int a, int b)  {  
     if (a == 0)
@@ -280,11 +282,16 @@ int mcd(int a, int b)  {
 }  
 ```
 
+## mcm
+
+
 ```c++
 int mcm(int a, int b)  {  
     return (a*b)/mcd(a, b);  
 } 
 ```
+
+## mcm para un vector
 
 ```c++
 int mcmvector(vector<int> a){
@@ -293,5 +300,28 @@ int mcmvector(vector<int> a){
 		aux=mcm(aux,a[i]);
 	}
 	return aux;
+}
+```
+
+## Criba de aristoteles
+
+```c++
+vector<int> primos;
+bool criba[33000];
+
+for(int i=2;i<33000;i++){
+	criba[i]=true;
+}
+
+for(int i=2;i<33000;i++){
+	if(criba[i]==false){
+		continue;
+	}
+	else{
+		primos.push_back(i);
+	}
+	for(int j=2*i;j<33000;j+=i){
+		criba[j]=false;
+	}
 }
 ```
