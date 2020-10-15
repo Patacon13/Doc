@@ -143,24 +143,37 @@ En el código se debe tener en cuenta que, en primer lugar se debe realizar un d
 ### Dijkstra
 
 ```c++
-//Calcula distancia mínima de todos a un nodo, incluso si es ponderado. Las aristas NO pueden ser negativas.
-//seteo la distancia de todos a INF
-for (int i = 1; i <= n; i++) distance[i] = INF;
-//la distancia a sí mismo, es 0
-distance[x] = 0;
-q.push({0,x});
-while (!q.empty()) {
-    int a = q.top().second;
-    q.pop();
-    if (processed[a]) continue;
-    processed[a] = true;
-    for (auto u : adj[a]) {
-        int b = u.first, w = u.second;
-        if (distance[a]+w < distance[b]) {
-            distance[b] = distance[a]+w;
-            q.push({-distance[b],b});
-        }
-    }
+void init(int src) {
+	for(int i = 0; i<dist.size(); i++){
+		padre[i] = i;
+		dist[i] = INF;
+	}
+	dist[src] = 0;
+}
+
+int getCercano() {
+	int valorMinimo = INF;
+	int nodoMinimo = 0;
+	for(int i = 0; i<dist.size(); i++) {
+		if(!visitados[i] && dist[i] < valorMinimo) {
+			valorMinimo = dist[i];
+			nodoMinimo = i;
+		}
+	}
+	return nodoMinimo;
+}
+
+void dijkstra() {
+	for(int i = 0; i<dist.size(); i++) {
+		int cercano = getCercano();
+		visitados[cercano] = true;
+		for(int adj = 0; adj < dist.size(); adj++) {
+			if(costos[cercano][adj] != 0 && dist[adj]>dist[cercano]+costos[cercano][adj]) {
+				dist[adj] = dist[cercano]+costos[cercano][adj];
+				padre[adj] = cercano;
+			}
+		}
+	}
 }
 ```
 ### Bellman-Ford - Complejidad: O(n*m)
