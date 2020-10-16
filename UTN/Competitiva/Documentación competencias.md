@@ -4,13 +4,14 @@
 
 ```c++
 #include <iostream>
+#include <iomanip>
 #include <algorithm>
 #include <map>
 #include <vector>
 #include <deque>
 #include <set>
 #include <cmath>
-
+#include <queue>
 
 typedef long long tint;
 using namespace std;
@@ -137,6 +138,24 @@ void dfs2(int node) {
 ```
 
 En el código se debe tener en cuenta que, en primer lugar se debe realizar un dfs1 en todos los nodos. Luego, invertir el “orden”, y, finalmente, realizar el dfs2. El algoritmo devuelve todas las componentes fuertemente conexas. Sin embargo, entiende a una componente simple como fuertemente conexa. Por eso se tendría que mirar si está detectando más de 1 nodo.
+
+### Orden topológico
+
+```c++
+vector<int> topSort(vector<vector<int>> g, vector<int> inGrade) {
+	int n = inGrade.size();
+	vector<int> topSorted;
+	queue<int> q;
+	for(int i = 0; i< n; i++) if(inGrade[i] == 0) q.push(i);
+	while(!q.empty()) {
+		int node = q.front(); q.pop();
+		topSorted.push_back(node);
+		for(int y : g[node]) if(--inGrade[y] == 0) q.push(y);
+	}
+	if(topSorted.size() < n) topSorted.clear();
+	return topSorted;
+}
+```
 
 ### Algoritmos distancias en grafos ponderados
 
