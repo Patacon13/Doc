@@ -306,7 +306,7 @@ int mcd(int a, int b)  {
 
 ```c++
 int mcm(int a, int b)  {  
-    return (a*b)/mcd(a, b);  
+    return a*(b/mcd(a, b));  
 } 
 ```
 
@@ -322,7 +322,19 @@ int mcmvector(vector<int> a){
 }
 ```
 
-## Criba de aristoteles
+## Verificar si un número es primo
+
+```c++
+bool esPrimo(int n) {
+    if(n<2) return false;
+        for(int x = 2; x*x <= n; x++) {
+	    if(x%x == 0) return false;
+	}
+	return true;
+}
+```
+
+## Criba de Erastótenes
 
 ```c++
 vector<int> primos;
@@ -342,5 +354,21 @@ for(int i=2;i<33000;i++){
 	for(int j=2*i;j<33000;j+=i){
 		criba[j]=false;
 	}
+}
+```
+
+## Factorización
+
+```c++
+vector<int> factors(int n) {
+    vector<int> f;
+    for(int x = 2; x*x <= n; x++) {
+        while(n%x == 0) {
+	    f.push_back(x);
+	    n /= x;
+	}
+    }
+    if(n > 1) f.push_back(n);
+    return f;
 }
 ```
