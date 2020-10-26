@@ -62,6 +62,15 @@ Al trabajar con cadenas de caracteres, puede ser util tener en cuenta algunas fu
 
 # Procesos
 
+## Pipes
+
+Inicialización:
+
+```c++
+int fd[2];
+pipe(fd);
+```
+
 ## Funciones útiles
 
 | Función | Descripción |
