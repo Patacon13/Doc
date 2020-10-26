@@ -62,9 +62,9 @@ Al trabajar con cadenas de caracteres, puede ser util tener en cuenta algunas fu
 
 # Procesos
 
-## Fork
-Se pueden crear procesos hijos mediante la función:
+## Funciones útiles
 
 | Función | Descripción |
 |:-------:|:------------:
 |fork()|Crea un nuevo proceso hijo. Retorna el ID del proceso.|
+|wait()|Detiene el funcionamiento del proceso hasta que el hijo termine|
