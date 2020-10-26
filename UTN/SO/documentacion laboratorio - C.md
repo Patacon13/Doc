@@ -59,3 +59,12 @@ Al trabajar con cadenas de caracteres, puede ser util tener en cuenta algunas fu
 |atoll(str)|Convierte un string a un long long|
 |stroul(str)|Convierte un string a unsigned long|
 |stroull(str)|Convierte un string a unsigned long long|
+
+# Procesos
+
+## Fork
+Se pueden crear procesos hijos mediante la función:
+
+| Función | Descripción |
+|:-------:|:------------:
+|fork()|Crea un nuevo proceso hijo. Retorna el ID del proceso.|
