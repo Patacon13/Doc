@@ -79,3 +79,4 @@ pipe(fd);
 |wait()|Detiene el funcionamiento del proceso hasta que el hijo termine|
 |write(pipe[1], &var, sizeof(var))|Pone en la tubería, el valor de la variable|
 |read(pipe[0], &var, sizeof(var))|Pone en la variable, el valor de la tubería|
+|execlp("",...,"")|Ejecuta un nuevo proceso|
