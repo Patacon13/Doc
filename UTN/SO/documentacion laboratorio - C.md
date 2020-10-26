@@ -82,7 +82,23 @@ pipe(fd);
 |execlp("",...,"")|Ejecuta un nuevo proceso. Retorna -1 si no lo encontró|
 
 ## Macros útiles
+
 | Macro | Descripción |
 |:-----:|:-----------:|
 |WIFEXITED|Verifica si el hijo terminó bien. Retorna true en ese caso. False en caso contrario|
 |WEXITSTATUS|Verifica si la ejecución fue exitosa. 0 en ese caso. Distinto de 0 en caso contrario|
+
+# Manejo de archivos
+
+## Funciones útiles
+
+| Función | Descripción |
+|:-------:|:-----------:|
+|open("",flags)|Abre el archivo, se le pueden indicar tantas flags como sean necesarias|
+
+## Flags útiles
+
+| Flag | Descripción |
+|:----:|:-----------:|
+|O_WRONLY|Solo escritura|
+|O_CREATE|Crea el archivo|
