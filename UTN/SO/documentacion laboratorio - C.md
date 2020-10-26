@@ -76,7 +76,13 @@ pipe(fd);
 | Función | Descripción |
 |:-------:|:------------:
 |fork()|Crea un nuevo proceso hijo. Retorna el ID del proceso.|
-|wait()|Detiene el funcionamiento del proceso hasta que el hijo termine|
+|wait(&wstatus)|Detiene el funcionamiento del proceso hasta que el hijo termine. Devuelve el estado del hijo en la variable pasada por referencia.|
 |write(pipe[1], &var, sizeof(var))|Pone en la tubería, el valor de la variable|
 |read(pipe[0], &var, sizeof(var))|Pone en la variable, el valor de la tubería|
-|execlp("",...,"")|Ejecuta un nuevo proceso|
+|execlp("",...,"")|Ejecuta un nuevo proceso. Retorna -1 si no lo encontró|
+
+## Macros útiles
+| Macro | Descripción |
+|:-----:|:-----------:|
+|WIFEXITED|Verifica si el hijo terminó bien. Retorna true en ese caso. False en caso contrario|
+|WEXITSTATUS|Verifica si la ejecución fue exitosa. 0 en ese caso. Distinto de 0 en caso contrario|
