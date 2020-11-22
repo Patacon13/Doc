@@ -102,3 +102,33 @@ pipe(fd);
 |:----:|:-----------:|
 |O_WRONLY|Solo escritura|
 |O_CREATE|Crea el archivo|
+
+# Comunicación entre procesos
+
+Utilizaremos una cola común de mensajes para comunicarnos entre procesos.
+
+## Funciones
+
+ Función | Descripción |
+|:-------:|:-----------:|
+|ftock)("","")|Genera una nueva clave IPC|
+|msgget(key, msgflg)|Devuelve el ID de la cola o -1. Crea la cola de ser necesario|
+|msgsend(idCola, *ptrAStructDatos, tamanoDatos, msgflg')|Agrega datos a la cola|
+|msgrcv(idCola,*EstructuraParaRecibir, tamanoDatos, tipoMensaje'', msgflg');
+|msgctl(idCola, int cmd''', *buf'''')|Sirve para hacer cosas con la cola. Generalmente la eliminamos|
+
+'msgflg por ahora en 0
+''en 0 recibe cualquier cosa, positivo recibe el tipo que le pongas, negativo recibe el primero menor o igual al valor absoluto de lo que le pongas.
+'''Para borrar, IPC_RMID.
+''''Se deja en NULL.
+
+## Estructura de mensajes a enviar
+
+```c
+struct msgbuf {
+  long mtype; //un numero
+  char mtext[1]; //dato a ingresar en la cola
+  //Se pueden agregar más cosas
+};
+```
+
