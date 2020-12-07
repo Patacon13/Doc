@@ -372,11 +372,11 @@ vector<int> factors(int n) {
     return f;
 }
 ```
-#Range queries
+# Range queries
 
-##Queries estáticas
+## Queries estáticas
 
-###Suma de prefijos
+### Suma de prefijos
 
 ```c++
 int sum(int a, int b) {
