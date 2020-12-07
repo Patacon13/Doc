@@ -388,9 +388,9 @@ int sum(int a, int b) {
 }	
 ```
 
-##Queries dinámicas
+## Queries dinámicas
 
-###Fenwick tree
+### Fenwick tree
 
 Dado un vector de enteros llamado tree generamos dos funciones que nos servirán para "hacer una suma de prefijos dinámica"
 
@@ -418,7 +418,7 @@ int add(int k, int x) {
 }
 ```
 
-###Segment tree
+### Segment tree
 
 El segment tree soporta rangos, a diferencia de el fenwick que realizará la consulta desde el primer elemento hasta un n. Es una estructura de datos mucho más general.
 
