@@ -372,3 +372,85 @@ vector<int> factors(int n) {
     return f;
 }
 ```
+#Range queries
+
+##Queries estáticas
+
+###Suma de prefijos
+
+```c++
+int sum(int a, int b) {
+    int s = 0;
+    for(int i = a; i<= b; i++) {
+        s += array[i];
+    }
+    return s;
+}	
+```
+
+##Queries dinámicas
+
+###Fenwick tree
+
+Dado un vector de enteros llamado tree generamos dos funciones que nos servirán para "hacer una suma de prefijos dinámica"
+
+Obtener suma:
+
+```c++
+int sum(int k) {
+    int s = 0;
+    while(k >= 1) {
+        s += tree[k];
+	k -= k&-k;
+    }
+    return s;
+}
+```
+
+Añadir un número X al elemento en K
+
+```c++
+int add(int k, int x) {
+    while(k <= n) {
+        tree[k] += x;
+	k += k&-k;
+    }
+}
+```
+
+###Segment tree
+
+El segment tree soporta rangos, a diferencia de el fenwick que realizará la consulta desde el primer elemento hasta un n. Es una estructura de datos mucho más general.
+
+```
+El tamaño del árbol será 2n
+```
+
+Obtener suma:
+
+```c++
+int sum(int a, int b) {
+    a += n;
+    b += n;
+    int s = 0;
+    while(a <= b) {
+        if(a%2 == 1) s += tree[a++];
+	if(b%2 == 0) s += tree[b--];
+	a /= 2;
+	b /= 2;
+    }
+    return s;
+}
+```
+
+Añadir un número X al elemento en K
+
+```c++
+void add(int k, int x) {
+    k += n;
+    tree[k] += x;
+    for(k /= 2; k >= 1; k /= 2) {
+        tree[k] = tree[2*k]+tree[2*k+1];
+    }
+}
+```
