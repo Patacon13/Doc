@@ -459,6 +459,7 @@ void add(int k, int x) {
 
 ## Ejemplo mochila
 
+```c++
 int mochilaDinamica2(int itemsC, int pesoMaximo) {
 	if(itemsC == 0) return 0;
 	if(dp[itemsC][pesoMaximo] != -1) return dp[itemsC][pesoMaximo];
@@ -468,3 +469,4 @@ int mochilaDinamica2(int itemsC, int pesoMaximo) {
 	}
 	return dp[itemsC][pesoMaximo];
 }
+```
