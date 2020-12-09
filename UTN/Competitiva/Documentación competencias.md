@@ -454,3 +454,17 @@ void add(int k, int x) {
     }
 }
 ```
+
+# Programación dinámica
+
+## Ejemplo mochila
+
+int mochilaDinamica2(int itemsC, int pesoMaximo) {
+	if(itemsC == 0) return 0;
+	if(dp[itemsC][pesoMaximo] != -1) return dp[itemsC][pesoMaximo];
+	dp[itemsC][pesoMaximo] = mochilaDinamica2(itemsC-1, pesoMaximo);
+	if(pesoMaximo >= items[itemsC].peso) {
+		dp[itemsC][pesoMaximo] = max(dp[itemsC][pesoMaximo], items[itemsC].valor + mochilaDinamica2(itemsC - 1, pesoMaximo - items[itemsC].peso));
+	}
+	return dp[itemsC][pesoMaximo];
+}
