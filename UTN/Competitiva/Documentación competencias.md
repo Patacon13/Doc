@@ -328,7 +328,7 @@ int mcmvector(vector<int> a){
 bool esPrimo(int n) {
     if(n<2) return false;
         for(int x = 2; x*x <= n; x++) {
-	    if(x%x == 0) return false;
+	    if(n%x == 0) return false;
 	}
 	return true;
 }
