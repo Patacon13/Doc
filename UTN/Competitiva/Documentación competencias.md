@@ -388,6 +388,28 @@ int sum(int a, int b) {
 }	
 ```
 
+### Longest Increasing Subsequence
+
+```C++
+LIS[1] = 1;
+
+//Busco todos los casos
+for(int i=2; i<=n; i++){
+
+	//Consideramos a 0 como el menor valor posible
+	maximo = -1;
+	for(int k=1; k<i; k++){
+		if(a[k] < a[i]){
+  			int maximoLocal = LIS[k] + 1;
+  			if(maximoLocal > maximo){
+    				maximo = maximoLocal;
+  			}
+		}
+	}
+	LIS[i] = maximo == -1 ? 1 : maximo;
+}
+```
+
 ## Queries dinámicas
 
 ### Fenwick tree
