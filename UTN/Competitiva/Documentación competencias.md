@@ -291,6 +291,21 @@ int kruskal(vector<pair<int,pair<int,int>>> grafo) {
 
 # Teoría de números
 
+## Potencia binaria
+
+```c++
+long long binpow(long long a, long long b) {
+    long long res = 1;
+    while (b > 0) {
+        if (b & 1)
+            res = res * a;
+        a = a * a;
+        b >>= 1;
+    }
+    return res;
+}
+```
+
 ## MCD
 
 ```c++
