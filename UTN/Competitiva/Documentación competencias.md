@@ -30,6 +30,16 @@ int main() {
 
 ```
 
+## Comparación de flotantes
+
+Usar == puede ser un problema para comparar dos números ya que no siempre las operaciones con flotantes son exactas. Una estrategia útil es comparar contra un ε
+
+```c++
+if (abs(a-b) < 1e-1) {
+    // a == b
+}
+```
+
 ## Criterio en sort
 
 ```c++
