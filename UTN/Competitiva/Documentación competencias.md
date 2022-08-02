@@ -59,13 +59,13 @@ bool criterio(const quimico&a, const quimico&b) {
 
 ```c++
 int a = 0, b = n-1;
-while (a <= b) {
+while (b - a > 1) {
     int k = (a+b)/2;
     if (array[k] == x) {
         // x found at index k
     }
-    if (array[k] > x) b = k-1;
-    else a = k+1;
+    if (array[k] > x) b = k;
+    else a = k;
 }
 ```
 
